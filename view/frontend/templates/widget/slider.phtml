@@ -1,1 +1,94 @@
-tesst product
+<?php 
+	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::DEFAULT_VIEW;
+    $image = 'new_products_content_widget_grid';
+?>
+<?php $Producs = $block->getProducts(); ?>
+		<div class="products wrapper grid products-grid">
+		    <ol class="products list items product-items">
+				<?php foreach ($Producs as $value): ?>
+		        <li class="item product product-item">
+		            <div class="product-item-info" data-container="product-grid">
+		                <a href="<?php echo $block->getProductUrl($value); ?>" class="product photo product-item-photo" tabindex="-1">
+                    		<?php echo $block->getImage($value, $image)->toHtml(); ?>
+		                </a>
+		                <div class="product details product-item-details">
+		                    <strong class="product name product-item-name">
+			                    <a class="product-item-link" 
+			                    href="<?php echo $block->getProductUrl($value); ?>">
+                                    <?php echo $block->escapeHtml($value->getName()); ?>
+			                	</a>
+		                    </strong>
+		                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="1" data-price-box="product-id-1">
+	                        <?php echo $block->getReviewsSummaryHtml($value, $templateType); ?>
+	                        <?php echo $block->getProductPrice($value); ?>
+	                        <?php echo $block->getProductDetailsHtml($value); ?>
+		                    </div>
+		                    <div class="product-item-inner">
+		                        <div class="product actions product-item-actions">
+		                            <div class="actions-primary">
+                                    <?php if ($value->isSaleable()): ?>
+                                        <?php if ($value->getTypeInstance()->hasRequiredOptions($value)): ?>
+                                            <button class="action tocart primary mageplaza-product-slider-button"
+                                                    data-mage-init='{"redirectUrl": {"url": "<?php echo $block->getAddToCartUrl($value) ?>"}}'
+                                                    type="button" title="<?php echo __('Add to Cart') ?>">
+                                                <span><?php echo __('Add to Cart') ?></span>
+                                            </button>
+                                        <?php else: ?>
+                                            <?php
+                                            $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
+                                            $postData = $postDataHelper->getPostData($block->getAddToCartUrl($value), ['product' => $value->getEntityId()])
+                                            ?>
+                                            <button class="action tocart primary mageplaza-product-slider-button"
+                                                    data-post='<?php echo $postData; ?>'
+                                                    type="button" title="<?php echo __('Add to Cart') ?>">
+                                                <span><?php echo __('Add to Cart') ?></span>
+                                            </button>
+                                        <?php endif; ?>
+	                                    <?php else: ?>
+	                                        <?php if ($value->getIsSalable()): ?>
+	                                            <div class="stock available"><span><?php echo __('In stock') ?></span>
+	                                            </div>
+	                                        <?php else: ?>
+	                                            <div class="stock unavailable">
+	                                                <span><?php echo __('Out of stock') ?></span>
+	                                            </div>
+	                                        <?php endif; ?>
+	                                    <?php endif; ?>
+	                                </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </li>
+                <script type="text/javascript">
+                        require([
+                            'jquery',
+                            'owlslider'  // the alias for "mage/accordion"
+                        ], function ($) {
+                            $(function () {
+                                var products_list = $('.products.list');
+                                products_list.owlCarousel({  
+                                loop:true,
+                                margin:30,
+                                nav:true,
+                                autoplay:false,
+                                autoplayTimeout:3000,
+
+                                dots:false,
+                                responsive:{
+                                    0:{
+                                        items:6
+                                    },  
+                                    
+                                    1200:{
+                                        items:6   
+                                    }
+                                }
+                        })
+                    });
+                });
+        </script>
+		        <?php endforeach; ?>
+		    </ol>
+		</div>
+		

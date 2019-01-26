@@ -86,17 +86,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             ]
         );
 
-        $fieldset->addField(
-            'is_feature',
-            'select',
-            [
-                'label' => __('is_featured'),
-                'name' => 'is_feature',
-                'required' => false,
-                'options' => ['1' => __('Enabled'), '0' => __('Disabled')]
-            ]
-        );
-
         $form->setValues($model->getData());
         $form->setUseContainer(true);
         $this->setForm($form);
