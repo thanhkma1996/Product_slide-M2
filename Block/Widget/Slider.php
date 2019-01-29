@@ -33,20 +33,42 @@ class Slider extends AbstractProduct implements BlockInterface
         $this->setTemplate('widget/slider.phtml');
     }
 
-    public function getProductCollection()
+    public function getSlide()
     {
         $sliderId = (int) $this->getSlider_id();
-        $model = $this->_PostFactory->create();
-        $model->load($sliderId);
         var_dump($sliderId);
+        $data = $this->_PostFactory->create();
+        $data->load($sliderId);
         $collection = $this->_productFactory->create();
         $collection->addAttributeToSelect('*')->addAttributeToFilter('is_featured', '1');
-        if ($model->getSlider_status() == 1) {
-            $collection->setPageSize($model->getLimit_product());
+        if($data->getStatus_slide() == 1) {
+            $collection->setPageSize($data->getLimit_product());
         }
+       
         return $collection;
     }
 
+    public function StatusModule()
+    {
+        $sliderId = (int) $this->getSlider_id();
+        $data = $this->_PostFactory->create();
+        $data->load($sliderId);
+        if($data->getStatus_module() == 1) {
+            return true;
+        }
+        return false;
+    }
+   
+    public function StatusSlide()
+    {
+        $sliderId = (int) $this->getSlider_id();
+        $data = $this->_PostFactory->create();
+        $data->load($sliderId);
+        if($data->getStatus_slide() == 1) {
+            return true;
+        }
+        return false;
+    }
    
 
 }

@@ -8,7 +8,7 @@ use Magento\Framework\Escaper;
 class Options implements \Magento\Framework\Option\ArrayInterface
 {
 
-    protected $_PostFactory;
+    protected $PostFactory;
 
     protected $escaper;
 
@@ -27,12 +27,10 @@ class Options implements \Magento\Framework\Option\ArrayInterface
     {
         $collection = $this->_PostFactory->create()->getCollection();
         $result = [];
-        //$result[] = ['value' => ' ', 'label' => 'Select Slider Product...'];
+        // $result[] = ['value' => ' ', 'label' => 'Select new slide...'];
         foreach ($collection as $group) {
-            $result[] = ['value' => $group->getSlider_id(), 'label' => $this->escaper->escapeHtml($group->getNameSlide())];
+            $result[] = ['value' => $group->getSlider_id(), 'label' => $this->escaper->escapeHtml($group->getName_slide())];
         }
-        // print_r($result);
-        // exit();
         return $result;
     }
 }

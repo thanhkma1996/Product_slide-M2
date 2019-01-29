@@ -1,12 +1,13 @@
 <?xml version="1.0" ?>
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:AHT_Slider:etc/widget.xsd">
- <widget class="AHT\Slider\Block\Widget\Slider" id="aht_slider_post">
-  <label>Slider AHT Thanhkma</label>
-  <description>Product Slider</description>
-  <parameters>
-   <parameter name="slider_id" xsi:type="select" visible="true" required="true"
-                       source_model="AHT\Slider\Model\Config\Source\Options">
+	<widget class="AHT\Slider\Block\Widget\Slider" id="aht_Slider_post">
+		<label>Product Slide Thanhkma</label>
+		<description>Slide</description>
+		<parameters>
+            <parameter name="slider_id" xsi:type="select" visible="true" required="false"
+                       source_model="AHT\Slider\Model\Post\Config\Source\Options">
+                <label translate="true">Product slide</label>
             </parameter>
-  </parameters>
- </widget>
-</widgets>
+		</parameters>
+	</widget>
+</widgets> 
