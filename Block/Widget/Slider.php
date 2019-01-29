@@ -12,17 +12,9 @@ class Slider extends AbstractProduct implements BlockInterface
 
     protected $_productFactory;
     protected $_PostFactory;
-    public function __construct
-    (
-        Context $context,
-        CollectionFactory $productFactory,
-        PostFactory $PostFactory,
-        array $data = []
-    ) {
-        parent::__construct(
-            $context,
-            $data
-        );
+    public function __construct(Context $context,CollectionFactory $productFactory,PostFactory $PostFactory,
+        array $data = [] ) {
+        parent::__construct($context, $data);
         $this->_productFactory = $productFactory;
         $this->_PostFactory = $PostFactory;
     }
@@ -35,10 +27,10 @@ class Slider extends AbstractProduct implements BlockInterface
 
     public function getSlide()
     {
-        $sliderId = (int) $this->getSlider_id();
-        var_dump($sliderId);
+        $sliderID = (int) $this->getSlider_id();
+        var_dump($sliderID);
         $data = $this->_PostFactory->create();
-        $data->load($sliderId);
+        $data->load($sliderID);
         $collection = $this->_productFactory->create();
         $collection->addAttributeToSelect('*')->addAttributeToFilter('is_featured', '1');
         if($data->getStatus_slide() == 1) {
@@ -50,9 +42,9 @@ class Slider extends AbstractProduct implements BlockInterface
 
     public function StatusModule()
     {
-        $sliderId = (int) $this->getSlider_id();
+        $sliderID = (int) $this->getSlider_id();
         $data = $this->_PostFactory->create();
-        $data->load($sliderId);
+        $data->load($sliderID);
         if($data->getStatus_module() == 1) {
             return true;
         }
@@ -61,9 +53,9 @@ class Slider extends AbstractProduct implements BlockInterface
    
     public function StatusSlide()
     {
-        $sliderId = (int) $this->getSlider_id();
+        $sliderID = (int) $this->getSlider_id();
         $data = $this->_PostFactory->create();
-        $data->load($sliderId);
+        $data->load($sliderID);
         if($data->getStatus_slide() == 1) {
             return true;
         }

@@ -4,10 +4,19 @@
     $image = 'new_products_content_widget_grid';
 	$item = $block->getSlide(); 
 	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::DEFAULT_VIEW;
-    $image = 'new_products_content_widget_grid';
+	$image = 'new_products_content_widget_grid';
+	
 ?>
+<style>
+	.owl-item.active {
+		width:1170px;
+	}
+</style>
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('AHT_Slider::css/owl.carousel.min.css')?>">
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('AHT_Slider::css/owl.theme.default.min.css')?>">
+
 <?php if($block->StatusModule()):  ?>
-		<div class="products wrapper grid products-grid">
+		<div class="products wrapper grid products-grid"   id="owlslider" >
 		    <ol class="products list items product-items">
 				<?php foreach ($item as $items): ?>
 		        <li class="item product product-item">
@@ -68,3 +77,15 @@
 		    </ol>
 		</div>
 <?php endif; ?>
+<script>
+    (function  () {
+        require(["jquery","owlcarousel"],function($) {
+            $(document).ready(function() {
+                $("#owlslider").owlCarousel({
+                    navigation : true, 
+                    autoPlay: false, 
+                });
+            });
+        });
+    })();
+    </script>
