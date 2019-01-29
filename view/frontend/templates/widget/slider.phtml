@@ -2,10 +2,10 @@
 	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::DEFAULT_VIEW;
     $image = 'new_products_content_widget_grid';
 ?>
-<?php $Producs = $block->getProducts(); ?>
+<?php $productCollection = $block->getProductCollection(); ?>
 		<div class="products wrapper grid products-grid">
 		    <ol class="products list items product-items">
-				<?php foreach ($Producs as $value): ?>
+				<?php foreach ($productCollection as $value): ?>
 		        <li class="item product product-item">
 		            <div class="product-item-info" data-container="product-grid">
 		                <a href="<?php echo $block->getProductUrl($value); ?>" class="product photo product-item-photo" tabindex="-1">
@@ -60,34 +60,6 @@
 		                </div>
 		            </div>
 		        </li>
-                <script type="text/javascript">
-                        require([
-                            'jquery',
-                            'owlslider'  // the alias for "mage/accordion"
-                        ], function ($) {
-                            $(function () {
-                                var products_list = $('.products.list');
-                                products_list.owlCarousel({  
-                                loop:true,
-                                margin:30,
-                                nav:true,
-                                autoplay:false,
-                                autoplayTimeout:3000,
-
-                                dots:false,
-                                responsive:{
-                                    0:{
-                                        items:6
-                                    },  
-                                    
-                                    1200:{
-                                        items:6   
-                                    }
-                                }
-                        })
-                    });
-                });
-        </script>
 		        <?php endforeach; ?>
 		    </ol>
 		</div>

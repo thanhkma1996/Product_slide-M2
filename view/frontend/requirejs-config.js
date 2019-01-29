@@ -1,5 +1,10 @@
 var config = {
+    paths: {            
+            'owlCarousel': "AHT_Slider/js/owl.carousel"
+        },   
     shim: {
-        'AHT_Slider/js/owl.carousel.min': ['jquery', 'jquery/ui']
+        'owlCarousel': {
+            deps: ['jquery']
+        }
     }
 };

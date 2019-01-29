@@ -1,6 +1,6 @@
 <?php
 
-namespace AHT\Slider\Model\Config\Source;
+namespace AHT\Slider\Model\Post\Config\Source;
 
 use AHT\Slider\Model\PostFactory;
 use Magento\Framework\Escaper;
@@ -8,13 +8,13 @@ use Magento\Framework\Escaper;
 class Options implements \Magento\Framework\Option\ArrayInterface
 {
 
-    protected $PostFactory;
+    protected $_PostFactory;
 
     protected $escaper;
 
     public function __construct(PostFactory $PostFactory, Escaper $escaper)
     {
-        $this->PostFactory = $PostFactory;
+        $this->_PostFactory = $PostFactory;
         $this->escaper = $escaper;
     }
 
@@ -25,12 +25,14 @@ class Options implements \Magento\Framework\Option\ArrayInterface
 
     private function getAvailableGroups()
     {
-        $collection = $this->PostFactory->create()->getCollection();
+        $collection = $this->_PostFactory->create()->getCollection();
         $result = [];
-        $result[] = ['value' => ' ', 'label' => 'Select Slider Product...'];
+        //$result[] = ['value' => ' ', 'label' => 'Select Slider Product...'];
         foreach ($collection as $group) {
-            $result[] = ['value' => $group->getSliderID(), 'label' => $this->escaper->escapeHtml($group->getNameSlide())];
+            $result[] = ['value' => $group->getSlider_id(), 'label' => $this->escaper->escapeHtml($group->getNameSlide())];
         }
+        // print_r($result);
+        // exit();
         return $result;
     }
 }

@@ -11,24 +11,42 @@ class Slider extends AbstractProduct implements BlockInterface
 {
 
     protected $_productFactory;
-    public function __construct (   Context $context,CollectionFactory $productFactory, array $data = []) {
-        parent::__construct($context,$data );
+    protected $_PostFactory;
+    public function __construct
+    (
+        Context $context,
+        CollectionFactory $productFactory,
+        PostFactory $PostFactory,
+        array $data = []
+    ) {
+        parent::__construct(
+            $context,
+            $data
+        );
         $this->_productFactory = $productFactory;
+        $this->_PostFactory = $PostFactory;
     }
 
-    public function _construct()
+    protected function _construct()
     {
         parent::_construct();
-
-        $this->setTemplate('AHT_Slider::widget/slider.phtml');
+        $this->setTemplate('widget/slider.phtml');
     }
 
-    public function getProducts()
+    public function getProductCollection()
     {
+        $sliderId = (int) $this->getSlider_id();
+        $model = $this->_PostFactory->create();
+        $model->load($sliderId);
+        var_dump($sliderId);
         $collection = $this->_productFactory->create();
         $collection->addAttributeToSelect('*')->addAttributeToFilter('is_featured', '1');
+        if ($model->getSlider_status() == 1) {
+            $collection->setPageSize($model->getLimit_product());
+        }
         return $collection;
     }
 
+   
 
 }
