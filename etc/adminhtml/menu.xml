@@ -4,5 +4,14 @@
         <add id="AHT_Slider::slider" title="Slider AHT" module="AHT_Slider" sortOrder="10" resource="AHT_Slider::slider"/>
         <add id="AHT_Slider::post" title="Manage Slide product" module="AHT_Slider" sortOrder="10" action="slider/post/index" resource="AHT_Slider::post" parent="AHT_Slider::slider"/>
         <add id="AHT_Slider::slider_configuration" title="Configuration" module="AHT_Slider" sortOrder="99" parent="AHT_Slider::slider" action="adminhtml/system_config/edit/section/slider" resource="AHT_Slider::slider_configuration"/>
+          <add id="AHT_Slider::atribute"
+             title="Magenager product atribute"
+             module="AHT_Slider"
+             sortOrder="500"
+             action="movie/slider"
+             resource="AHT_Slider::slider"
+             parent="AHT_Slider::slider"/>
+
+    
     </menu>
 </config>
