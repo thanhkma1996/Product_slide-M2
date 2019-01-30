@@ -27,14 +27,14 @@ class Slider extends AbstractProduct implements BlockInterface
 
     public function getSlide()
     {
-        $sliderID = (int) $this->getSlider_id();
-        var_dump($sliderID);
+        $sliderID = $this->getSlider_id();
+        // var_dump($sliderID);
         $data = $this->_PostFactory->create();
         $data->load($sliderID);
         $collection = $this->_productFactory->create();
-        $collection->addAttributeToSelect('*')->addAttributeToFilter('is_featured', '1');
+        $collection->addAttributeToSelect('*')->addAttributeToFilter('is_featured', '1')->setPageSize($data->getNumber_product_module());
         if($data->getStatus_slide() == 1) {
-            $collection->setPageSize($data->getLimit_product());
+            $collection->setPageSize($data->getNumber_product_slide());
         }
        
         return $collection;
@@ -42,7 +42,7 @@ class Slider extends AbstractProduct implements BlockInterface
 
     public function StatusModule()
     {
-        $sliderID = (int) $this->getSlider_id();
+        $sliderID = $this->getSlider_id();
         $data = $this->_PostFactory->create();
         $data->load($sliderID);
         if($data->getStatus_module() == 1) {
@@ -53,7 +53,7 @@ class Slider extends AbstractProduct implements BlockInterface
    
     public function StatusSlide()
     {
-        $sliderID = (int) $this->getSlider_id();
+        $sliderID = $this->getSlider_id();
         $data = $this->_PostFactory->create();
         $data->load($sliderID);
         if($data->getStatus_slide() == 1) {

@@ -54,13 +54,24 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $fieldset->addField(
-            'limit_product',
+            'number_product_slide',
             'text',
             [
-                'label' => __('limit product'),
-                'name' => 'limit_product',
+                'label' => __('Number product slide'),
+                'name' => 'number_product_slide',
                 'required' => true,
-                'value' => $model->getLimitProduct()
+                'value' => $model->getNumberProductSlide()
+            ]
+        );
+
+        $fieldset->addField(
+            'number_product_module',
+            'text',
+            [
+                'label' => __('Number product module'),
+                'name' => 'number_product_module',
+                'required' => true,
+                'value' => $model->getNumberProductModule()
             ]
         );
 

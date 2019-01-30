@@ -37,8 +37,8 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 ->addColumn('status_module', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '0'], 'Status Module')
                 ->addColumn('status_slide', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '0'], 'Status Slide')
                 ->addColumn('status_slide', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '0'], 'Status Slide')
-                ->addColumn('is_featured', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '0'], 'Status Slide')
-                ->addColumn('limit_product', Table::TYPE_SMALLINT, null, ['unsigned' => true, 'nullable' => false], 'Limit the number of products slide')
+                ->addColumn('number_product_slide', Table::TYPE_SMALLINT, null, ['unsigned' => true, 'nullable' => false], 'Limit the number of products slide')
+                ->addColumn('number_product_module', Table::TYPE_SMALLINT, null, ['unsigned' => true, 'nullable' => false], 'Limit the number of products in module')
                 ->addColumn('created_at', Table::TYPE_TIMESTAMP, null, ['nullable' => false, 'default' => Table::TIMESTAMP_INIT], 'Creation Time')
                 ->addColumn('updated_at', Table::TYPE_TIMESTAMP, null, ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE], 'Update Time')
                 ->setComment('Product Slider AHT');
