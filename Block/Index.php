@@ -17,7 +17,8 @@ class Index extends \Magento\Framework\View\Element\Template
     public function getProductCollection()
     {
         $collection = $this->_productCollectionFactory->create();
-        $collection->addAttributeToSelect('*')->addAttributeToSelect('name')->addAttributeToFilter('is_featured', '1');
+        $collection->addAttributeToSelect('*')->addAttributeToSelect('name')
+        ->addAttributeToFilter('is_featured', '1');
         return $collection;
     }
 

@@ -10,7 +10,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="AHT_slider::slider_config" title="slider"/>
+                            <!-- <resource id="AHT_slider::slider_config" title="slider"/> -->
                         </resource>
                     </resource>
                 </resource>
