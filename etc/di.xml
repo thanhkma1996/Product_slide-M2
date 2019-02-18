@@ -4,4 +4,7 @@
             <argument name="resource" xsi:type="object">AHT\Slider\Model\ResourceModel\Post</argument>
         </arguments>
     </type>
+
+   
+
 </config>

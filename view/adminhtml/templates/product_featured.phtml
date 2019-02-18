@@ -1,0 +1,30 @@
+<?php
+        $productCollection = $block->getProductCollection();
+      ?>  
+        
+        <form action="<?php echo $block->getUrl('slider/product/add'); ?>" method="post" id="form-validate">
+            <table style="width:400px; border:1px solid black;">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>SKU</th>
+                    <th>Status feature</th>
+                    <th>Choose feature</th>
+                </tr>
+
+                <?php 
+                        foreach($productCollection as $display){
+                ?>
+                </tr>
+                    <td><?php echo $display->getEntityID() ?></td>
+                    <td><?php echo $display->getName() ?></td>
+                    <td><?php echo $display->getSKU() ?></td>
+                    <td><?php echo $display->getIs_featured(); ?>
+                    <td><input type="checkbox" name="enable" value="1">
+                </tr>
+                <?php  } ?>
+             <input type="submit" value="Disable">
+            </table>
+        </form>
+
+

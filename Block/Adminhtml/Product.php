@@ -1,7 +1,11 @@
 <?php
-namespace AHT\Slider\Block;
-class Index extends \Magento\Framework\View\Element\Template
-{    
+
+namespace AHT\Slider\Block\Adminhtml;
+
+
+class Product extends \Magento\Framework\View\Element\Template
+{
+
     protected $_productCollectionFactory;
         
     public function __construct(
@@ -21,6 +25,4 @@ class Index extends \Magento\Framework\View\Element\Template
         return $collection;
     }
 
-    
 }
-?>
