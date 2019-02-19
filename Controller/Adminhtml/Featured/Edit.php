@@ -1,8 +1,8 @@
 <?php
 
-namespace AHT\Slider\Controller\Adminhtml\Post;
+namespace AHT\Slider\Controller\Adminhtml\Featured;
 
-class Edit extends \AHT\Slider\Controller\Adminhtml\Post
+class Edit extends \AHT\Slider\Controller\Adminhtml\Featured
 {
     protected $_coreRegistry = null;
 
@@ -15,7 +15,7 @@ class Edit extends \AHT\Slider\Controller\Adminhtml\Post
     public function execute()
     {
         $id = $this->getRequest()->getParam('id');
-        $model = $this->_objectManager->create('AHT\Slider\Model\Post');
+        $model = $this->_objectManager->create('AHT\Slider\Model\Product');
 
         if ($id) {
             $model->load($id);

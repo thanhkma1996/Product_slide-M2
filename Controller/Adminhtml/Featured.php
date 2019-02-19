@@ -4,7 +4,7 @@ namespace AHT\Slider\Controller\Adminhtml;
 
 use Magento\Backend\App\Action;
 
-abstract class Post extends Action
+abstract class Featured extends Action
 {
     protected function _initAction()
     {

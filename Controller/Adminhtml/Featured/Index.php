@@ -1,8 +1,8 @@
 <?php
 
-namespace AHT\Slider\Controller\Adminhtml\Post;
+namespace AHT\Slider\Controller\Adminhtml\Featured;
 
-class Index extends \AHT\Slider\Controller\Adminhtml\Post
+class Index extends \AHT\Slider\Controller\Adminhtml\Featured
 {
 
     public function execute()

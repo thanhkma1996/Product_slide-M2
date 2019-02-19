@@ -1,8 +1,8 @@
 <?php
 
-namespace AHT\Slider\Controller\Adminhtml\Post;
+namespace AHT\Slider\Controller\Adminhtml\Featured;
 
-class MassStatus extends \AHT\Slider\Controller\Adminhtml\Post
+class massDelete extends \AHT\Slider\Controller\Adminhtml\Featured
 {
     public function execute()
     {
@@ -13,12 +13,11 @@ class MassStatus extends \AHT\Slider\Controller\Adminhtml\Post
         } else {
             try {
                 foreach ($ids as $id) {
-                    $model = $this->_objectManager->create('AHT\Slider\Model\Post')
+                    $model = $this->_objectManager->create('AHT\Slider\Model\Product')
                         ->load($id)
-                        ->setStatusmodule($this->getRequest()->getPost('status_module'))
-                        ->save();
+                        ->delete();
                 }
-                $this->messageManager->addSuccess(__('Total of %1 record(s) were successfully updated.', count($ids)));
+                $this->messageManager->addSuccess(__('Total of %1 record(s) were successfully deleted.', count($ids)));
 
             } catch (\Exception $e) {
                 $this->messageManager->addError($e->getMessage());
@@ -27,5 +26,3 @@ class MassStatus extends \AHT\Slider\Controller\Adminhtml\Post
         return $resultRedirect->setPath('*/*/');
     }
 }
-
-

@@ -1,5 +1,5 @@
 <?php
-namespace AHT\Slider\Model\ResourceModel\Post;
+namespace AHT\Slider\Model\ResourceModel\Product;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
@@ -14,7 +14,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 	 */
 	protected function _construct()
 	{
-		$this->_init('AHT\Slider\Model\Post', 'AHT\Slider\Model\ResourceModel\Post');
+		$this->_init('AHT\Slider\Model\Product', 'AHT\Slider\Model\ResourceModel\Product');
 	}
 
 }

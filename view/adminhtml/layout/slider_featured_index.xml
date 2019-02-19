@@ -2,16 +2,16 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="AHT\Slider\Block\Adminhtml\Post" name="adminhtml.post.container">
+            <block class="AHT\Slider\Block\Adminhtml\Featured" name="adminhtml.post.container">
                 <block class="Magento\Backend\Block\Widget\Grid" name="adminhtml.post.container.grid" as="grid">
                     <arguments>
                         <argument name="id" xsi:type="string">postGrid</argument>
-                        <argument name="dataSource" xsi:type="object">AHT\Slider\Model\ResourceModel\Post\Collection</argument>
+                        <argument name="dataSource" xsi:type="object">AHT\Slider\Model\ResourceModel\Product\Collection</argument>
                         <argument name="default_sort" xsi:type="string">name_slide</argument>
                         <argument name="default_dir" xsi:type="string">ASC</argument>
                         <argument name="save_parameters_in_session" xsi:type="boolean">true</argument>
                         <argument name="use_ajax" xsi:type="boolean">false</argument>
-                        <argument name="grid_url" xsi:type="url" path="slider/post/index">
+                        <argument name="grid_url" xsi:type="url" path="slider/featured/index">
                             <param name="_current">1</param>
                         </argument>
                     </arguments>
@@ -22,12 +22,12 @@
                             <argument name="options" xsi:type="array">
                                 <item name="delete" xsi:type="array">
                                     <item name="label" xsi:type="string" translate="true">Delete</item>
-                                    <item name="url" xsi:type="string">slider/post/massDelete</item>
+                                    <item name="url" xsi:type="string">slider/featured/massDelete</item>
                                     <item name="confirm" xsi:type="string" translate="true">Are you sure you want to delete?</item>
                                 </item>
                                 <item name="change_status" xsi:type="array">
                                     <item name="label" xsi:type="string" translate="true">Change Status</item>
-                                    <item name="url" xsi:type="string">slider/post/massStatus</item>
+                                    <item name="url" xsi:type="string">slider/featured/massStatus</item>
                                     <item name="block_name" xsi:type="string">grid.status</item>
                                 </item>
                             </argument>
@@ -130,7 +130,7 @@
                                     <item name="view_action" xsi:type="array">
                                         <item name="caption" xsi:type="string" translate="true">Edit</item>
                                         <item name="url" xsi:type="array">
-                                            <item name="base" xsi:type="string">slider/post/edit</item>
+                                            <item name="base" xsi:type="string">slider/featured/edit</item>
                                         </item>
                                         <item name="field" xsi:type="string">id</item>
                                     </item>

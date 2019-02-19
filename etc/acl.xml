@@ -4,7 +4,7 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="AHT_Slider::slider" title="slider" sortOrder="10">
-                    <resource id="AHT_Slider::post" title="Posts" sortOrder="10"/>
+                    <resource id="AHT_Slider::featured" title="Posts" sortOrder="10"/>
                     <resource id="AHT_Slider::slider_configuration" title="Configuration" sortOrder="100" />
                 </resource>
                 <resource id="Magento_Backend::stores">

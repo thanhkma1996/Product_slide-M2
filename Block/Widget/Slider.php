@@ -1,7 +1,7 @@
 <?php
 namespace AHT\Slider\Block\Widget;
 
-use AHT\Slider\Model\PostFactory;
+use AHT\Slider\Model\ProductFactory;
 use Magento\Catalog\Block\Product\AbstractProduct;
 use Magento\Catalog\Block\Product\Context;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
@@ -11,12 +11,12 @@ class Slider extends AbstractProduct implements BlockInterface
 {
 
     protected $_productFactory;
-    protected $_PostFactory;
-    public function __construct(Context $context,CollectionFactory $productFactory,PostFactory $PostFactory,
+    protected $_SliderFactory;
+    public function __construct(Context $context,CollectionFactory $productFactory,ProductFactory $SliderFactory,
         array $data = [] ) {
         parent::__construct($context, $data);
         $this->_productFactory = $productFactory;
-        $this->_PostFactory = $PostFactory;
+        $this->_SliderFactory = $SliderFactory;
     }
 
     protected function _construct()
@@ -29,7 +29,7 @@ class Slider extends AbstractProduct implements BlockInterface
     {
         $sliderID = $this->getSlider_id();
         // var_dump($sliderID);
-        $data = $this->_PostFactory->create();
+        $data = $this->_SliderFactory->create();
         $data->load($sliderID);
         $collection = $this->_productFactory->create();
         $collection->addAttributeToSelect('*')->addAttributeToFilter('is_featured', '1')->setPageSize($data->getNumber_product_module());
@@ -43,7 +43,7 @@ class Slider extends AbstractProduct implements BlockInterface
     public function StatusModule()
     {
         $sliderID = $this->getSlider_id();
-        $data = $this->_PostFactory->create();
+        $data = $this->_SliderFactory->create();
         $data->load($sliderID);
         if($data->getStatus_module() == 1) {
             return true;
@@ -54,7 +54,7 @@ class Slider extends AbstractProduct implements BlockInterface
     public function StatusSlide()
     {
         $sliderID = $this->getSlider_id();
-        $data = $this->_PostFactory->create();
+        $data = $this->_SliderFactory->create();
         $data->load($sliderID);
         if($data->getStatus_slide() == 1) {
             return true;

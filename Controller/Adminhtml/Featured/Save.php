@@ -1,10 +1,10 @@
 <?php
 
-namespace AHT\Slider\Controller\Adminhtml\Post;
+namespace AHT\Slider\Controller\Adminhtml\Featured;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 
-class Save extends \AHT\Slider\Controller\Adminhtml\Post
+class Save extends \AHT\Slider\Controller\Adminhtml\Featured
 {
     public function execute()
     {
@@ -12,7 +12,7 @@ class Save extends \AHT\Slider\Controller\Adminhtml\Post
         $data = $this->getRequest()->getPostValue();
         if ($data) {
             $id = $this->getRequest()->getParam('slider_id');
-            $model = $this->_objectManager->create('AHT\Slider\Model\Post')->load($id);
+            $model = $this->_objectManager->create('AHT\Slider\Model\Product')->load($id);
             if (!$model->getId() && $id) {
                 $this->messageManager->addError(__('This item no longer exists.'));
                 return $resultRedirect->setPath('*/*/');

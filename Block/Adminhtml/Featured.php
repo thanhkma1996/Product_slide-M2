@@ -1,7 +1,7 @@
 <?php
 namespace AHT\Slider\Block\Adminhtml;
 
-class Post extends \Magento\Backend\Block\Widget\Grid\Container
+class Featured extends \Magento\Backend\Block\Widget\Grid\Container
 {
 
 	protected function _construct()

@@ -1,6 +1,6 @@
 <?php
 namespace AHT\Slider\Model;
-class Post extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
+class Product extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
 	const CACHE_TAG = 'aht_slider_post';
 
@@ -10,7 +10,7 @@ class Post extends \Magento\Framework\Model\AbstractModel implements \Magento\Fr
 
 	protected function _construct()
 	{
-		$this->_init('AHT\Slider\Model\ResourceModel\Post');
+		$this->_init('AHT\Slider\Model\ResourceModel\Product');
 	}
 
 	public function getIdentities()

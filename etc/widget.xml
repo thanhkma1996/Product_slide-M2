@@ -5,7 +5,7 @@
 		<description>Slide</description>
 		<parameters>
             <parameter name="slider_id" xsi:type="select" visible="true" required="false"
-                       source_model="AHT\Slider\Model\Post\Config\Source\Options">
+                       source_model="AHT\Slider\Model\Product\Config\Source\Options">
                 <label translate="true">Product slide</label>
             </parameter>
 		</parameters>
