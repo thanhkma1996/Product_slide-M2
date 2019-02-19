@@ -11,25 +11,22 @@ class Add extends \Magento\Framework\App\Action\Action {
     }
 
     public function execute()
-    {
+    {   
+        if($_POST) {
 
-        if ($_POST) {
-            $id = $this->getRequest()->getParam('entity_id');
-            $enable = $this->getRequest()->getParam('enable');
-            if($enable != 1)
-            {
-                $enable=0;
-            }
+            $id = $this->getRequest()->getParam('id');
+
+            $enable = 0 ;
            
             $model = $this->_objectManager->create('Magento\Catalog\Model\Product')->load($id);
 
             $model->setIs_featured($enable);
+            $model->setEntity_id($id);
             $model->save();
 
             $this->messageManager->addSuccess(__('Disable featured product'));
 
             return $this->_redirect('slider/product/index');
-
         }
         return $this->_redirect('sider/product/index');
     }
