@@ -15,7 +15,7 @@ class MassStatus extends \AHT\Slider\Controller\Adminhtml\Featured
                 foreach ($ids as $id) {
                     $model = $this->_objectManager->create('AHT\Slider\Model\Product')
                         ->load($id)
-                        ->setStatusmodule($this->getRequest()->getPost('status_module'))
+                        ->setStatus_module($this->getRequest()->getPost('status_module'))
                         ->save();
                 }
                 $this->messageManager->addSuccess(__('Total of %1 record(s) were successfully updated.', count($ids)));

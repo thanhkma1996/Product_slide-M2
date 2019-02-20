@@ -36,7 +36,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             ['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post', 'enctype' => 'multipart/form-data']]
         );
 
-        $fieldset = $form->addFieldset('add_post_form', ['legend' => __('Post')]);
+        $fieldset = $form->addFieldset('add_post_form', ['legend' => __('Product Slider featured')]);
 
         if ($model->getId()) {
             $fieldset->addField('slider_id', 'hidden', ['name' => 'slider_id']);

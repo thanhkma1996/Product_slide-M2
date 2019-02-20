@@ -2,7 +2,7 @@
 
 namespace AHT\Slider\Controller\Adminhtml\Featured;
 
-class massDelete extends \AHT\Slider\Controller\Adminhtml\Featured
+class MassDelete extends \AHT\Slider\Controller\Adminhtml\Featured
 {
     public function execute()
     {
