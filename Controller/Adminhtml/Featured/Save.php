@@ -1,18 +1,28 @@
 <?php
 
 namespace AHT\Slider\Controller\Adminhtml\Featured;
-
+use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Filesystem\DirectoryList;
+use AHT\Slider\Model\ProductFactory;
 
 class Save extends \AHT\Slider\Controller\Adminhtml\Featured
 {
+
+    public function __construct(Context $context,ProductFactory $productFactory,
+        array $data = [] ) {
+        parent::__construct($context, $data);
+        $this->_productFactory = $productFactory;
+    
+    }
+
     public function execute()
     {
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
         if ($data) {
             $id = $this->getRequest()->getParam('slider_id');
-            $model = $this->_objectManager->create('AHT\Slider\Model\Product')->load($id);
+            $model = $this->_productFactory->create();
+            $model->load($id);
             if (!$model->getId() && $id) {
                 $this->messageManager->addError(__('This item no longer exists.'));
                 return $resultRedirect->setPath('*/*/');
