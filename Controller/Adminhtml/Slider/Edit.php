@@ -1,13 +1,16 @@
 <?php
 
 namespace AHT\Slider\Controller\Adminhtml\Slider;
-
+use AHT\Slider\Model\SliderFactory;
 class Edit extends \AHT\Slider\Controller\Adminhtml\Slider
 {
     protected $_coreRegistry = null;
+    protected $_sliderFactory;
 
-    public function __construct(\Magento\Backend\App\Action\Context $context, \Magento\Framework\Registry $coreRegistry)
+    public function __construct(\Magento\Backend\App\Action\Context $context, \Magento\Framework\Registry $coreRegistry,
+     SliderFactory $SliderFactory   )
     {
+        $this->_sliderFactory = $SliderFactory;
         $this->_coreRegistry = $coreRegistry;
         parent::__construct($context);
     }
@@ -15,7 +18,7 @@ class Edit extends \AHT\Slider\Controller\Adminhtml\Slider
     public function execute()
     {
         $id = $this->getRequest()->getParam('id');
-        $model = $this->_objectManager->create('AHT\Slider\Model\Slider');
+        $model = $this->_sliderFactory->create();
 
         if ($id) {
             $model->load($id);

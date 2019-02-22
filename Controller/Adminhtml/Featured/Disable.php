@@ -26,8 +26,8 @@ class Disable extends \Magento\Framework\App\Action\Action {
             $model = $this->_productFactory->create();
             $model->load($id);
 
-            $model->setIs_featured($enable);
-            $model->setEntity_id($id);
+            $model->setIsFeatured($enable);
+            $model->setEntityId($id);
             $model->save();
 
             $this->messageManager->addSuccess(__('Disable featured product'));

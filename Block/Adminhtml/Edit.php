@@ -27,7 +27,6 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         $this->buttonList->add(
             'saveandcontinue',
             [
-                // 'label' => __('Save and Continue Edit'),
                 'class' => 'save',
                 'data_attribute' => [
                     'mage-init' => ['button' => ['event' => 'saveAndContinueEdit', 'target' => '#edit_form']],
