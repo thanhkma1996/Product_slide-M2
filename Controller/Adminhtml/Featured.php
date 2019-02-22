@@ -10,7 +10,7 @@ abstract class Featured extends Action
     {
         $this->_view->loadLayout();
         $this->_setActiveMenu(
-            'AHT_Slider::slider'
+            'AHT_Slider::product'
         )->_addBreadcrumb(
             __('Slider'),
             __('Slider')
@@ -20,7 +20,7 @@ abstract class Featured extends Action
 
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('AHT_Slider::slider');
+        return $this->_authorization->isAllowed('AHT_Slider::product');
     }
 }
 

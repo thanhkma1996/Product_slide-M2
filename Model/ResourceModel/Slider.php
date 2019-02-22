@@ -2,7 +2,7 @@
 namespace AHT\Slider\Model\ResourceModel;
 
 
-class Product extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
+class Slider extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
 	
 	public function __construct(
@@ -14,7 +14,7 @@ class Product extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 	
 	protected function _construct()
 	{
-		$this->_init('aht_slider_post', 'slider_id');
+		$this->_init('aht_slider_product', 'slider_id');
 	}
 	
 }

@@ -1,17 +1,17 @@
 <?php
 
-namespace AHT\Slider\Controller\Adminhtml\Featured;
+namespace AHT\Slider\Controller\Adminhtml\Slider;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Filesystem\DirectoryList;
-use AHT\Slider\Model\ProductFactory;
+use AHT\Slider\Model\SliderFactory;
 
-class Save extends \AHT\Slider\Controller\Adminhtml\Featured
+class Save extends \AHT\Slider\Controller\Adminhtml\Slider
 {
 
-    public function __construct(Context $context,ProductFactory $productFactory,
+    public function __construct(Context $context,SliderFactory $SliderFactory,
         array $data = [] ) {
         parent::__construct($context, $data);
-        $this->_productFactory = $productFactory;
+        $this->_SliderFactory = $SliderFactory;
     
     }
 
@@ -21,7 +21,7 @@ class Save extends \AHT\Slider\Controller\Adminhtml\Featured
         $data = $this->getRequest()->getPostValue();
         if ($data) {
             $id = $this->getRequest()->getParam('slider_id');
-            $model = $this->_productFactory->create();
+            $model = $this->_SliderFactory->create();
             $model->load($id);
             if (!$model->getId() && $id) {
                 $this->messageManager->addError(__('This item no longer exists.'));

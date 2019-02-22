@@ -1,8 +1,8 @@
 <?php
 
-namespace AHT\Slider\Controller\Adminhtml\Featured;
+namespace AHT\Slider\Controller\Adminhtml\Slider;
 
-class MassStatus extends \AHT\Slider\Controller\Adminhtml\Featured
+class MassStatus extends \AHT\Slider\Controller\Adminhtml\Slider
 {
     public function execute()
     {
@@ -13,7 +13,7 @@ class MassStatus extends \AHT\Slider\Controller\Adminhtml\Featured
         } else {
             try {
                 foreach ($ids as $id) {
-                    $model = $this->_objectManager->create('AHT\Slider\Model\Product')
+                    $model = $this->_objectManager->create('AHT\Slider\Model\Slider')
                         ->load($id)
                         ->setStatus_module($this->getRequest()->getPost('status_module'))
                         ->save();

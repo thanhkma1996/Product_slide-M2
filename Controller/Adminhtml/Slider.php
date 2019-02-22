@@ -4,13 +4,13 @@ namespace AHT\Slider\Controller\Adminhtml;
 
 use Magento\Backend\App\Action;
 
-abstract class Product extends Action
+abstract class Slider extends Action
 {
     protected function _initAction()
     {
         $this->_view->loadLayout();
         $this->_setActiveMenu(
-            'AHT_Slider::product'
+            'AHT_Slider::slider'
         )->_addBreadcrumb(
             __('Slider'),
             __('Slider')
@@ -20,7 +20,7 @@ abstract class Product extends Action
 
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('AHT_Slider::product');
+        return $this->_authorization->isAllowed('AHT_Slider::slider');
     }
 }
 

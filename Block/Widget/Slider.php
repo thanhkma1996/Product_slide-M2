@@ -1,7 +1,7 @@
 <?php
 namespace AHT\Slider\Block\Widget;
 
-use AHT\Slider\Model\ProductFactory;
+use AHT\Slider\Model\SliderFactory;
 use Magento\Catalog\Block\Product\AbstractProduct;
 use Magento\Catalog\Block\Product\Context;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
@@ -12,7 +12,7 @@ class Slider extends AbstractProduct implements BlockInterface
 
     protected $_productFactory;
     protected $_SliderFactory;
-    public function __construct(Context $context,CollectionFactory $productFactory,ProductFactory $SliderFactory,
+    public function __construct(Context $context,CollectionFactory $productFactory,SliderFactory $SliderFactory,
         array $data = [] ) {
         parent::__construct($context, $data);
         $this->_productFactory = $productFactory;

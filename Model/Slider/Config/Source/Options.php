@@ -1,20 +1,20 @@
 <?php
 
-namespace AHT\Slider\Model\Product\Config\Source;
+namespace AHT\Slider\Model\Slider\Config\Source;
 
-use AHT\Slider\Model\ProductFactory;
+use AHT\Slider\Model\SliderFactory;
 use Magento\Framework\Escaper;
 
 class Options implements \Magento\Framework\Option\ArrayInterface
 {
 
-    protected $ProductFactory;
+    protected $SliderFactory;
 
     protected $escaper;
 
-    public function __construct(ProductFactory $ProductFactory, Escaper $escaper)
+    public function __construct(SliderFactory $SliderFactory, Escaper $escaper)
     {
-        $this->_ProductFactory = $ProductFactory;
+        $this->_SliderFactory = $SliderFactory;
         $this->escaper = $escaper;
     }
 
@@ -25,9 +25,8 @@ class Options implements \Magento\Framework\Option\ArrayInterface
 
     private function getAvailableGroups()
     {
-        $collection = $this->_ProductFactory->create()->getCollection();
+        $collection = $this->_SliderFactory->create()->getCollection();
         $result = [];
-        // $result[] = ['value' => ' ', 'label' => 'Select new slide...'];
         foreach ($collection as $group) {
             $result[] = ['value' => $group->getSlider_id(), 'label' => $this->escaper->escapeHtml($group->getName_slide())];
         }
